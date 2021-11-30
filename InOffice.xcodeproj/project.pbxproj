@@ -8,22 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		ED464C99274BAF4A00D6D45C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED464C98274BAF4A00D6D45C /* AppDelegate.swift */; };
-		ED464C9B274BAF4A00D6D45C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED464C9A274BAF4A00D6D45C /* SceneDelegate.swift */; };
 		ED464C9D274BAF4A00D6D45C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED464C9C274BAF4A00D6D45C /* ViewController.swift */; };
-		ED464CA0274BAF4A00D6D45C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED464C9E274BAF4A00D6D45C /* Main.storyboard */; };
 		ED464CA2274BAF4D00D6D45C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED464CA1274BAF4D00D6D45C /* Assets.xcassets */; };
 		ED464CA5274BAF4D00D6D45C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED464CA3274BAF4D00D6D45C /* LaunchScreen.storyboard */; };
+		ED646D45275531B6001756FD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED646D44275531B6001756FD /* String.swift */; };
+		ED646D4C27554E67001756FD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ED646D4B27554E67001756FD /* FirebaseAnalytics */; };
+		ED646D4E27555212001756FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED646D4D27555212001756FD /* GoogleService-Info.plist */; };
+		ED81ABD5274BC10900B61366 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD4274BC10900B61366 /* SnapKit */; };
+		ED81ABD8274BC43200B61366 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD7274BC43200B61366 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ED464C95274BAF4A00D6D45C /* InOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED464C98274BAF4A00D6D45C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED464C9A274BAF4A00D6D45C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ED464C9C274BAF4A00D6D45C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ED464C9F274BAF4A00D6D45C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED464CA1274BAF4D00D6D45C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED464CA4274BAF4D00D6D45C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED464CA6274BAF4D00D6D45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED646D44275531B6001756FD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		ED646D4D27555212001756FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED81ABD5274BC10900B61366 /* SnapKit in Frameworks */,
+				ED81ABD8274BC43200B61366 /* Alamofire in Frameworks */,
+				ED646D4C27554E67001756FD /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				ED464C98274BAF4A00D6D45C /* AppDelegate.swift */,
-				ED464C9A274BAF4A00D6D45C /* SceneDelegate.swift */,
-				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
-				ED464C9E274BAF4A00D6D45C /* Main.storyboard */,
 				ED464CA1274BAF4D00D6D45C /* Assets.xcassets */,
+				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
+				ED646D44275531B6001756FD /* String.swift */,
 				ED464CA3274BAF4D00D6D45C /* LaunchScreen.storyboard */,
 				ED464CA6274BAF4D00D6D45C /* Info.plist */,
+				ED646D4D27555212001756FD /* GoogleService-Info.plist */,
 			);
 			path = InOffice;
 			sourceTree = "<group>";
@@ -83,6 +89,11 @@
 			dependencies = (
 			);
 			name = InOffice;
+			packageProductDependencies = (
+				ED81ABD4274BC10900B61366 /* SnapKit */,
+				ED81ABD7274BC43200B61366 /* Alamofire */,
+				ED646D4B27554E67001756FD /* FirebaseAnalytics */,
+			);
 			productName = InOffice;
 			productReference = ED464C95274BAF4A00D6D45C /* InOffice.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,11 @@
 				Base,
 			);
 			mainGroup = ED464C8C274BAF4A00D6D45C;
+			packageReferences = (
+				ED81ABD3274BC10900B61366 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ED81ABD6274BC43200B61366 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ED646D4A27554E67001756FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = ED464C96274BAF4A00D6D45C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED464CA5274BAF4D00D6D45C /* LaunchScreen.storyboard in Resources */,
+				ED646D4E27555212001756FD /* GoogleService-Info.plist in Resources */,
 				ED464CA2274BAF4D00D6D45C /* Assets.xcassets in Resources */,
-				ED464CA0274BAF4A00D6D45C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +154,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED646D45275531B6001756FD /* String.swift in Sources */,
 				ED464C9D274BAF4A00D6D45C /* ViewController.swift in Sources */,
 				ED464C99274BAF4A00D6D45C /* AppDelegate.swift in Sources */,
-				ED464C9B274BAF4A00D6D45C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ED464C9E274BAF4A00D6D45C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED464C9F274BAF4A00D6D45C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED464CA3274BAF4D00D6D45C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +302,7 @@
 				INFOPLIST_FILE = InOffice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +330,7 @@
 				INFOPLIST_FILE = InOffice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +368,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED646D4A27554E67001756FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		ED81ABD3274BC10900B61366 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		ED81ABD6274BC43200B61366 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED646D4B27554E67001756FD /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED646D4A27554E67001756FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		ED81ABD4274BC10900B61366 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED81ABD3274BC10900B61366 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		ED81ABD7274BC43200B61366 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED81ABD6274BC43200B61366 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED464C8D274BAF4A00D6D45C /* Project object */;
 }
