@@ -16,6 +16,8 @@
 		ED646D4E27555212001756FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED646D4D27555212001756FD /* GoogleService-Info.plist */; };
 		ED81ABD5274BC10900B61366 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD4274BC10900B61366 /* SnapKit */; };
 		ED81ABD8274BC43200B61366 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD7274BC43200B61366 /* Alamofire */; };
+		ED8D3B7C2756651000BDAF8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D3B7B2756651000BDAF8D /* User.swift */; };
+		ED8D3B7E275668AE00BDAF8D /* ManagerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		ED464CA6274BAF4D00D6D45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED646D44275531B6001756FD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		ED646D4D27555212001756FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED8D3B7B2756651000BDAF8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				ED464CA3274BAF4D00D6D45C /* LaunchScreen.storyboard */,
 				ED464CA6274BAF4D00D6D45C /* Info.plist */,
 				ED646D4D27555212001756FD /* GoogleService-Info.plist */,
+				ED8D3B7B2756651000BDAF8D /* User.swift */,
+				ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */,
 			);
 			path = InOffice;
 			sourceTree = "<group>";
@@ -83,6 +89,7 @@
 				ED464C91274BAF4A00D6D45C /* Sources */,
 				ED464C92274BAF4A00D6D45C /* Frameworks */,
 				ED464C93274BAF4A00D6D45C /* Resources */,
+				ED8D3B7F275785A900BDAF8D /* swiftlint */,
 			);
 			buildRules = (
 			);
@@ -149,14 +156,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ED8D3B7F275785A900BDAF8D /* swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED464C91274BAF4A00D6D45C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8D3B7C2756651000BDAF8D /* User.swift in Sources */,
 				ED646D45275531B6001756FD /* String.swift in Sources */,
 				ED464C9D274BAF4A00D6D45C /* ViewController.swift in Sources */,
 				ED464C99274BAF4A00D6D45C /* AppDelegate.swift in Sources */,
+				ED8D3B7E275668AE00BDAF8D /* ManagerAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

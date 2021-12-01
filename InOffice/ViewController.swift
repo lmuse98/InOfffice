@@ -47,7 +47,7 @@ class ViewController: UIViewController {
       return view
     }()
     
-    private let RegisterContentView: UIView = {
+    private let registerContentView: UIView = {
        let register = UIView()
         register.backgroundColor = .white
         register.layer.cornerRadius = 15
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         view.addSubview(passTextField)
         view.addSubview(mailTextField)
         view.addSubview(btnLogin)
-        view.addSubview(RegisterContentView)
+        view.addSubview(registerContentView)
         view.addSubview(textLabel)
         view.addSubview(titleLabel)
         view.addSubview(titleregister)
@@ -145,15 +145,15 @@ class ViewController: UIViewController {
             make.height.equalTo(40)
             
         }
-        RegisterContentView.snp.makeConstraints { make in
+        registerContentView.snp.makeConstraints { make in
             make.bottom.equalTo(view)
             make.height.equalTo(loginContentView).offset(-270)
             make.leading.equalTo(view).offset(30)
             make.trailing.equalTo(view).offset(-30)
         }
         textLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(RegisterContentView)
-            make.centerX.equalTo(RegisterContentView).offset(-30)
+            make.centerY.equalTo(registerContentView)
+            make.centerX.equalTo(registerContentView).offset(-30)
             
         }
         titleLabel.snp.makeConstraints { make in
