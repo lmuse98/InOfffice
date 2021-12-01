@@ -1,0 +1,47 @@
+disabled_rules:
+ - todo
+ - line_length
+ - shorthand_operator
+ - identifier_name
+ - conditional_returns_on_newline
+ - force_try
+ - inclusive_language
+opt_in_rules:
+  - empty_count
+
+included:
+  - Source
+excluded:
+  - Carthage
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+  - Source/*/ExcludedFile.swift
+   - Playgrounds
+analyzer_rules:
+  - explicit_self
+
+type_body_length:
+  - 800
+  - 1200
+
+file_length:
+  warning: 800
+  error: 1200
+
+type_name:
+  min_length: 4
+  max_length:
+    warning: 40
+    error: 50
+  excluded: iPhone
+  allowed_symbols: ["_"]
+identifier_name:
+  min_length:
+    error: 4
+  excluded:
+    - id
+    - URL
+    - GlobalAPIKey
+reporter: "xcode"
+

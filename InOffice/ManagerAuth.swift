@@ -8,23 +8,21 @@
 import Foundation
 
 class ManagerAuth: ManagerProviderDelegate {
-    
+
     static let sharedInstance = ManagerAuth()
-    
-    private init(){}
-    
-    
-    
+
+    private init() {}
+
     @objc func registerUser() {
-        
+
     }
-    
+
     @objc func loginUser() {
-        
+
     }
-    
+
     @objc func logoutUser() {
-        
+
     }
 }
 
@@ -32,5 +30,5 @@ protocol ManagerProviderDelegate: AnyObject {
     func registerUser()
     func loginUser()
     func logoutUser()
-    
+
 }
