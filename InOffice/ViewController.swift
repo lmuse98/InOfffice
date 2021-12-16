@@ -14,42 +14,43 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.delegate = self
+
         let color = UIColor(named: "background")
         view.backgroundColor = color
         setupViews()
         setupConstraints()
+
     }
+
+    var viewModel = LoginViewModel()
+
 
     @objc func onClickLoginButton(sender: AnyObject) {
 
-        if let email = mailTextField.text, let password = passTextField.text {
-            if !email.validateEmail() {
-                openAlert(title: "Alert", message: "Email addres not found.", actionTitles: ["Okay"], actionStyle: [.default], actions: [nil, { _ in
-                }])
-            } else if !password.validatePassword() {
-                openAlert(title: "Alert", message: "Please enter valid password.", actionTitles: ["Okay"], actionStyle: [.default], actions: [nil, { _ in
-                }])
-            } else {
-                //
-            }
-        } else {
-            openAlert(title: "Alert", message: "Please add detail.", actionTitles: ["Okay"], actionStyle: [.default], actions: [nil, { _ in
-                print("Okay clicked")
-            }])
-        }
+        guard let email = mailTextField.text, let password = passTextField.text else { return }
+            viewModel.sendValue(email: email, password: password)
+
+        let FrontPageVC = FrontPageViewController()
+        let navVC = UINavigationController(rootViewController: FrontPageVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
     }
+
     private let loginContentView: UIView = {
       let view = UIView()
       view.backgroundColor = .white
       view.layer.cornerRadius = 15
       return view
     }()
+
     private let registerContentView: UIView = {
        let register = UIView()
         register.backgroundColor = .white
         register.layer.cornerRadius = 15
         return register
     }()
+
     private let mailTextField: UITextField = {
         let txtField = UITextField()
         txtField.backgroundColor = .white
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
         txtField.borderStyle = .roundedRect
         return txtField
     }()
+
     private let passTextField: UITextField = {
         let txtField = UITextField()
         txtField.placeholder = "Password"
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
         txtField.borderStyle = .roundedRect
         return txtField
     }()
+
     lazy var btnLogin: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .black
@@ -97,6 +100,16 @@ class ViewController: UIViewController {
         return text2
     }()
 
+    lazy var btnLoginMicr: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.layer.cornerRadius = 7
+        btn.backgroundColor = .systemBlue
+        btn.setTitle("Register by Microsoft", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.addTarget(self, action: #selector(onClickLoginButton), for: .touchUpInside)
+        return btn
+    }()
+
     func setupViews() {
         view.addSubview(loginContentView)
         view.addSubview(mailTextField)
@@ -107,6 +120,7 @@ class ViewController: UIViewController {
         view.addSubview(textLabel)
         view.addSubview(titleLabel)
         view.addSubview(titleregister)
+        view.addSubview(btnLoginMicr)
     }
     func setupConstraints() {
         loginContentView.snp.makeConstraints { make in
@@ -158,6 +172,13 @@ class ViewController: UIViewController {
             make.leading.equalTo(textLabel.snp.trailing).offset(5)
             make.centerY.equalTo(textLabel.snp.centerY)
         }
+
+        btnLoginMicr.snp.makeConstraints { make in
+            make.top.equalTo(btnLogin).offset(60)
+            make.leading.equalTo(loginContentView).offset(30)
+            make.trailing.equalTo(loginContentView).offset(-30)
+            make.height.equalTo(40)
+        }
     }
 
 }
@@ -172,3 +193,9 @@ extension UIViewController {
           self.present(alert, animated: true)
         }
    }
+
+extension ViewController: LoginViewModelDelegate {
+    func showError(_ error: Error, _ message: String) {
+        openAlert(title: "Pogreska", message: message, actionTitles: ["U redu"], actionStyle: [.default], actions: [nil])
+    }
+}

@@ -7,26 +7,26 @@
 
 import Foundation
 
-class ManagerAuth: ManagerProviderDelegate {
+class ManagerAuth: ManagerProvider {
 
     static let sharedInstance = ManagerAuth()
 
     private init() {}
 
-    @objc func registerUser() {
+    func registerUser() {
 
     }
 
-    @objc func loginUser() {
+    func loginUser() {
 
     }
 
-    @objc func logoutUser() {
+    func logoutUser() {
 
     }
 }
 
-protocol ManagerProviderDelegate: AnyObject {
+protocol ManagerProvider {
     func registerUser()
     func loginUser()
     func logoutUser()
