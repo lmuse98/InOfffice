@@ -12,7 +12,6 @@ import UIKit
 class HomeViewController: UIViewController {
 
 
-    let ProfileVC = ProfileDetailsViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,8 +58,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let user = UserModel.getList()[indexPath.row]
-        navigationController?.pushViewController(ProfileVC, animated: true)
-        present(ProfileVC, animated: true, completion: nil)
+        let ProfileDetailsVC = ProfileDetailsViewController(users: user)
+        navigationController?.pushViewController(ProfileDetailsVC, animated: true)
+        present(ProfileDetailsVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

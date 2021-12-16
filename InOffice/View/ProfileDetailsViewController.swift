@@ -17,13 +17,24 @@ class ProfileDetailsViewController: UIViewController {
         setupConstraints()
     }
 
+    let users: UserModel
+
+    init(users: UserModel) {
+        self.users = users
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     lazy var tableView: UITableView = {
        let table = UITableView()
         return table
     }()
 
     lazy var avatar: UIImageView = {
-        let image = UIImageView(image: Images.james)
+        let image = UIImageView(image: users.profilePic)
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.layer.cornerRadius = 60
@@ -31,8 +42,16 @@ class ProfileDetailsViewController: UIViewController {
         return image
     }()
 
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = .black
+        label.text = users.userName
+        return label
+    }()
+
     lazy var segmentedControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Personal", "Social", "Resume"])
+        let control = UISegmentedControl(items: ["Personal", "Social"])
         control.selectedSegmentIndex = 0
         control.layer.borderColor = UIColor.gray.cgColor
         control.tintColor = .gray
@@ -41,7 +60,9 @@ class ProfileDetailsViewController: UIViewController {
 
     lazy var upperView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemGray4
+        view.layer.cornerRadius = 10
+
         return view
     }()
 
@@ -53,8 +74,9 @@ class ProfileDetailsViewController: UIViewController {
     }()
 
     func setupViews() {
-        view.addSubview(avatar)
         view.addSubview(upperView)
+        view.addSubview(avatar)
+        view.addSubview(titleLabel)
         view.addSubview(segmentedControl)
         view.addSubview(editButton)
         view.addSubview(tableView)
@@ -62,21 +84,25 @@ class ProfileDetailsViewController: UIViewController {
 
     func setupConstraints() {
         avatar.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(60)
+            make.centerX.equalTo(upperView)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.width.equalTo(120)
             make.height.equalTo(120)
         }
         upperView.snp.makeConstraints { make in
-
+            make.top.equalTo(view)
+            make.height.equalTo(220)
+            make.leading.equalTo(view)
+            make.trailing.equalTo(view)
         }
         segmentedControl.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.bottom.equalTo(avatar.snp.bottom).offset(40)
-            make.width.equalTo(self.view)
+            make.bottom.equalTo(upperView.snp.bottom).offset(80)
+            make.width.equalTo(300)
         }
-    }
-    func setData(title: String) {
-        //titleLabel.text = title
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(upperView)
+            make.bottom.equalTo(avatar.snp.bottom).offset(45)
+        }
     }
 }
