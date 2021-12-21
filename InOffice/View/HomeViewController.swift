@@ -7,28 +7,26 @@
 
 import UIKit
 
-
-
 class HomeViewController: UIViewController {
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureView()
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
     }
-    lazy var tableView: UITableView = {
+
+    lazy private var tableView: UITableView = {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self
         table.register(CustomCell.self, forCellReuseIdentifier: "\(CustomCell.self)")
         table.register(HeaderSectionCell.self, forHeaderFooterViewReuseIdentifier: "\(HeaderSectionCell.self)")
-        table.rowHeight = 80.0
         return table
     }()
+
     private func configureView() {
         view.addSubview(tableView)
 
@@ -45,10 +43,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserModel.getList().count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else {
             return UITableViewCell()
         }
+        guard UserModel.getList().count >= indexPath.row else { return UITableViewCell() }
         let user = UserModel.getList()[indexPath.row]
         cell.setData(user)
         cell.accessoryType = .detailButton
@@ -58,9 +58,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let user = UserModel.getList()[indexPath.row]
-        let ProfileDetailsVC = ProfileDetailsViewController(users: user)
-        navigationController?.pushViewController(ProfileDetailsVC, animated: true)
-        present(ProfileDetailsVC, animated: true)
+        let viewModel = ProfileDetailsViewModel(user: user)
+        let profileDetailsVC = ProfileDetailsViewController(viewModel: viewModel)
+        navigationController?.pushViewController(profileDetailsVC, animated: true)
+        present(profileDetailsVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -74,5 +75,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

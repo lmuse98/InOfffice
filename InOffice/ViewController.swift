@@ -11,6 +11,8 @@ import Alamofire
 
 class ViewController: UIViewController {
 
+    var viewModel = LoginViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,17 +22,12 @@ class ViewController: UIViewController {
         view.backgroundColor = color
         setupViews()
         setupConstraints()
-
     }
-
-    var viewModel = LoginViewModel()
-
 
     @objc func onClickLoginButton(sender: AnyObject) {
 
         guard let email = mailTextField.text, let password = passTextField.text else { return }
-            viewModel.sendValue(email: email, password: password)
-
+        viewModel.sendValue(email: email, password: password)
         let FrontPageVC = FrontPageViewController()
         let navVC = UINavigationController(rootViewController: FrontPageVC)
         navVC.modalPresentationStyle = .fullScreen
@@ -68,7 +65,7 @@ class ViewController: UIViewController {
         return txtField
     }()
 
-    lazy var btnLogin: UIButton = {
+    lazy private var btnLogin: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .black
         btn.setTitle("Login", for: .normal)
@@ -100,7 +97,7 @@ class ViewController: UIViewController {
         return text2
     }()
 
-    lazy var btnLoginMicr: UIButton = {
+    lazy private var btnLoginMicr: UIButton = {
         let btn = UIButton(type: .system)
         btn.layer.cornerRadius = 7
         btn.backgroundColor = .systemBlue
@@ -110,7 +107,7 @@ class ViewController: UIViewController {
         return btn
     }()
 
-    func setupViews() {
+    private func setupViews() {
         view.addSubview(loginContentView)
         view.addSubview(mailTextField)
         view.addSubview(passTextField)
@@ -122,7 +119,7 @@ class ViewController: UIViewController {
         view.addSubview(titleregister)
         view.addSubview(btnLoginMicr)
     }
-    func setupConstraints() {
+    private func setupConstraints() {
         loginContentView.snp.makeConstraints { make in
             make.leading.equalTo(view).offset(35)
             make.trailing.equalTo(view).offset(-35)
@@ -180,7 +177,6 @@ class ViewController: UIViewController {
             make.height.equalTo(40)
         }
     }
-
 }
 
 extension UIViewController {

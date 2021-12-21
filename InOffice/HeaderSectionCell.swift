@@ -13,23 +13,28 @@ class HeaderSectionCell: UITableViewHeaderFooterView {
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
+
     private var view: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         configureView()
         setupConstraints()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     private func configureView() {
         addSubview(view)
-        view.addSubview(titleLabel)
+        addSubview(titleLabel)
     }
+
     private func setupConstraints() {
         view.snp.makeConstraints { make in
             make.leading.equalTo(snp.leading)

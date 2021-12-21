@@ -26,6 +26,7 @@
 		EDA75EB927636B1E00D51CAF /* HeaderSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA75EB827636B1E00D51CAF /* HeaderSectionCell.swift */; };
 		EDA75ECC27665C0D00D51CAF /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA75ECB27665C0D00D51CAF /* LoginModel.swift */; };
 		EDA75ECE2766691400D51CAF /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA75ECD2766691400D51CAF /* Images.swift */; };
+		EDB3DDF2277200A6004DBCA3 /* ProfileDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3DDF1277200A5004DBCA3 /* ProfileDetailsViewModel.swift */; };
 		EDFC7BD52758CF9F0077677B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		EDA75EB827636B1E00D51CAF /* HeaderSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionCell.swift; sourceTree = "<group>"; };
 		EDA75ECB27665C0D00D51CAF /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EDA75ECD2766691400D51CAF /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EDB3DDF1277200A5004DBCA3 /* ProfileDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewModel.swift; sourceTree = "<group>"; };
 		EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 				ED464CA1274BAF4D00D6D45C /* Assets.xcassets */,
 				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
 				EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */,
+				EDB3DDF1277200A5004DBCA3 /* ProfileDetailsViewModel.swift */,
 				ED646D44275531B6001756FD /* String.swift */,
 				ED464CA3274BAF4D00D6D45C /* LaunchScreen.storyboard */,
 				ED464CA6274BAF4D00D6D45C /* Info.plist */,
@@ -235,6 +238,7 @@
 				ED45AFD62762BBC70004D35F /* HomeViewController.swift in Sources */,
 				EDA75ECC27665C0D00D51CAF /* LoginModel.swift in Sources */,
 				ED45AFD82762C38B0004D35F /* CustomCell.swift in Sources */,
+				EDB3DDF2277200A6004DBCA3 /* ProfileDetailsViewModel.swift in Sources */,
 				ED45AFDA2762C7EE0004D35F /* UserModel.swift in Sources */,
 				ED00EA8E27690CD200627114 /* FrontPageViewController.swift in Sources */,
 				EDA75EB927636B1E00D51CAF /* HeaderSectionCell.swift in Sources */,

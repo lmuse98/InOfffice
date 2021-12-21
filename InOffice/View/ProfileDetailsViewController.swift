@@ -9,18 +9,20 @@ import UIKit
 
 class ProfileDetailsViewController: UIViewController {
 
+    var viewModel: ProfileDetailsViewModel
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.title = "Profile"
         setupViews()
         setupConstraints()
+        viewModel.delegate = self
+        viewModel.loaded()
     }
 
-    let users: UserModel
-
-    init(users: UserModel) {
-        self.users = users
+    init(viewModel: ProfileDetailsViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -28,13 +30,13 @@ class ProfileDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy var tableView: UITableView = {
+    lazy private var tableView: UITableView = {
        let table = UITableView()
-        return table
+       return table
     }()
 
-    lazy var avatar: UIImageView = {
-        let image = UIImageView(image: users.profilePic)
+    lazy private var avatar: UIImageView = {
+        let image = UIImageView()
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.layer.cornerRadius = 60
@@ -42,15 +44,14 @@ class ProfileDetailsViewController: UIViewController {
         return image
     }()
 
-    lazy var titleLabel: UILabel = {
+    lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textColor = .black
-        label.text = users.userName
         return label
     }()
 
-    lazy var segmentedControl: UISegmentedControl = {
+    lazy private var segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Personal", "Social"])
         control.selectedSegmentIndex = 0
         control.layer.borderColor = UIColor.gray.cgColor
@@ -58,22 +59,21 @@ class ProfileDetailsViewController: UIViewController {
         return control
     }()
 
-    lazy var upperView: UIView = {
+    lazy private var upperView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
         view.layer.cornerRadius = 10
-
         return view
     }()
 
-    lazy var editButton: UIButton = {
+    lazy private var editButton: UIButton = {
         let button = UIButton()
         button.setTitle("Edit", for: .normal)
         button.setTitleColor(.gray, for: .normal)
         return button
     }()
 
-    func setupViews() {
+    private func setupViews() {
         view.addSubview(upperView)
         view.addSubview(avatar)
         view.addSubview(titleLabel)
@@ -82,7 +82,7 @@ class ProfileDetailsViewController: UIViewController {
         view.addSubview(tableView)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         avatar.snp.makeConstraints { make in
             make.centerX.equalTo(upperView)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
@@ -104,5 +104,12 @@ class ProfileDetailsViewController: UIViewController {
             make.centerX.equalTo(upperView)
             make.bottom.equalTo(avatar.snp.bottom).offset(45)
         }
+    }
+}
+
+extension ProfileDetailsViewController: ProfileDetailsViewModelDelegate {
+    func show(user: UserModel) {
+        titleLabel.text = user.userName
+        avatar.image = user.profilePic
     }
 }

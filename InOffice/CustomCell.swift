@@ -20,6 +20,7 @@ class CustomCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         return label
     }()
+
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .light)
@@ -29,9 +30,8 @@ class CustomCell: UITableViewCell {
     lazy private var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.addArrangedSubview(userNameLabel)
-        stackView.addArrangedSubview(descriptionLabel)
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
         return stackView
     }()
 
@@ -48,30 +48,19 @@ class CustomCell: UITableViewCell {
     private func setupView() {
         addSubview(profilePic)
         addSubview(stackView)
-        addSubview(userNameLabel)
-        addSubview(descriptionLabel)
+        stackView.addArrangedSubview(userNameLabel)
+        stackView.addArrangedSubview(descriptionLabel)
     }
 
     func setupConstraints() {
         profilePic.snp.makeConstraints { make in
-            make.leading.equalTo(130)
             make.leading.equalTo(10)
             make.centerY.equalTo(self)
         }
 
         stackView.snp.makeConstraints { make in
-                make.leading.equalTo(10)
-                make.trailing.equalTo(snp.trailing)
-                make.top.equalTo(snp.top)
-                make.bottom.equalTo(snp.bottom)
-            }
-        userNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(10)
-            make.leading.equalTo(profilePic.snp.trailing).offset(30)
-        }
-        descriptionLabel.snp.makeConstraints { make in
-            make.leading.equalTo(profilePic.snp.trailing).offset(30)
-            make.bottom.equalTo(userNameLabel).offset(40)
+            make.leading.equalTo(profilePic.snp.trailing).offset(10)
+            make.top.bottom.trailing.equalToSuperview().inset(10)
         }
     }
 
