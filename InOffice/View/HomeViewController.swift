@@ -11,14 +11,14 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureView()
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    lazy private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self

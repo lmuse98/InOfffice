@@ -27,7 +27,7 @@ class CustomCell: UITableViewCell {
         return label
     }()
 
-    lazy private var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading

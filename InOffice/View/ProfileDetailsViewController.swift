@@ -30,12 +30,12 @@ class ProfileDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
        let table = UITableView()
        return table
     }()
 
-    lazy private var avatar: UIImageView = {
+    private lazy var avatar: UIImageView = {
         let image = UIImageView()
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.lightGray.cgColor
@@ -44,14 +44,14 @@ class ProfileDetailsViewController: UIViewController {
         return image
     }()
 
-    lazy private var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textColor = .black
         return label
     }()
 
-    lazy private var segmentedControl: UISegmentedControl = {
+    private lazy var segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Personal", "Social"])
         control.selectedSegmentIndex = 0
         control.layer.borderColor = UIColor.gray.cgColor
@@ -59,14 +59,14 @@ class ProfileDetailsViewController: UIViewController {
         return control
     }()
 
-    lazy private var upperView: UIView = {
+    private lazy var upperView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
         view.layer.cornerRadius = 10
         return view
     }()
 
-    lazy private var editButton: UIButton = {
+    private lazy var editButton: UIButton = {
         let button = UIButton()
         button.setTitle("Edit", for: .normal)
         button.setTitleColor(.gray, for: .normal)

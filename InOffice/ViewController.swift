@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         return txtField
     }()
 
-    lazy private var btnLogin: UIButton = {
+    private lazy var btnLogin: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .black
         btn.setTitle("Login", for: .normal)
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         return text2
     }()
 
-    lazy private var btnLoginMicr: UIButton = {
+    private lazy var btnLoginMicr: UIButton = {
         let btn = UIButton(type: .system)
         btn.layer.cornerRadius = 7
         btn.backgroundColor = .systemBlue

@@ -31,11 +31,11 @@ class LoginViewModel {
             return }
 
     }
-    
+
     func validateEmail(email: String) -> Bool {
         email.validateEmail()
     }
-    
+
     func validatePassword(password: String) -> Bool {
         password.validatePassword()
     }
