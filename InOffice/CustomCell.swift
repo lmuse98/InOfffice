@@ -64,9 +64,9 @@ class CustomCell: UITableViewCell {
         }
     }
 
-    func setData(_ user: UserModel) {
-        profilePic.image = user.profilePic
-        descriptionLabel.text = user.description
-        userNameLabel.text = user.userName
+    func setData(_ user: User) {
+        //profilePic.image = user.profilePic
+        descriptionLabel.text = user.role
+        userNameLabel.text = user.name
     }
 }

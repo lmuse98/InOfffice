@@ -9,11 +9,13 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var userViewModel = UsersViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureView()
         tableView.reloadData()
+        userViewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -41,15 +43,15 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserModel.getList().count
+        return userViewModel.users.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else {
             return UITableViewCell()
         }
-        guard UserModel.getList().count >= indexPath.row else { return UITableViewCell() }
-        let user = UserModel.getList()[indexPath.row]
+        guard userViewModel.users.count >= indexPath.row else { return UITableViewCell() }
+        let user = userViewModel.users[indexPath.row]
         cell.setData(user)
         cell.accessoryType = .detailButton
         return cell
@@ -57,7 +59,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let user = UserModel.getList()[indexPath.row]
+        let user = userViewModel.users[indexPath.row]
         let viewModel = ProfileDetailsViewModel(user: user)
         let profileDetailsVC = ProfileDetailsViewController(viewModel: viewModel)
         navigationController?.pushViewController(profileDetailsVC, animated: true)
@@ -79,5 +81,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+extension HomeViewController: UsersViewModelDelegate {
+    func reloadData() {
+        tableView.reloadData()
     }
 }

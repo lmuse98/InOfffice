@@ -108,8 +108,8 @@ class ProfileDetailsViewController: UIViewController {
 }
 
 extension ProfileDetailsViewController: ProfileDetailsViewModelDelegate {
-    func show(user: UserModel) {
-        titleLabel.text = user.userName
-        avatar.image = user.profilePic
+    func show(user: User) {
+        titleLabel.text = user.name
+        //avatar.image = user.photoId
     }
 }

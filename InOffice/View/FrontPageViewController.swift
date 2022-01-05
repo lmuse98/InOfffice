@@ -25,7 +25,7 @@ class FrontPageViewController: UIViewController {
         title = "Hello"
     }
 
-    func setData(_ user: UserModel) {
-        userNameLabel.text = user.userName
+    func setData(_ user: User) {
+        userNameLabel.text = user.name
     }
 }
