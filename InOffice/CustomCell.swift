@@ -56,6 +56,7 @@ class CustomCell: UITableViewCell {
         profilePic.snp.makeConstraints { make in
             make.leading.equalTo(10)
             make.centerY.equalTo(self)
+            make.width.height.equalTo(40)
         }
 
         stackView.snp.makeConstraints { make in

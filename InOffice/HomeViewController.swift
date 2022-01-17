@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     var userViewModel = UsersViewModel()
+    var content = ContentManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class HomeViewController: UIViewController {
         userViewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        content.observeRealDB()
     }
 
     private lazy var tableView: UITableView = {
