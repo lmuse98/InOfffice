@@ -1,13 +1,13 @@
 //
-//  User.swift
+//  LoginModel.swift
 //  InOffice
 //
-//  Created by Luka Muše on 30.11.2021..
+//  Created by Luka Muše on 12.12.2021..
 //
 
 import Foundation
 
-struct User {
+struct LoginModel {
     let email: String
     let password: String
 }
