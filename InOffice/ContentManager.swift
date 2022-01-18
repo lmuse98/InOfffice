@@ -8,20 +8,16 @@
 import Foundation
 
 protocol ContentManagerDelegate: AnyObject {
-    func realTimeUpdate( completion: @escaping ([String]) -> Void)
+   //  func realTimeUpdate( completion: @escaping ([String]) -> Void)
 }
 
 class ContentManager: ContentManagerDelegate {
-    func realTimeUpdate(completion: @escaping ([String]) -> Void) {
-        
-    }
 
     private let manager = FirebaseManager()
     private let realManager = RealTimeFirebaseManager()
 
-
     var users: [User] = []
-    var realUsers: [String] = []
+    var getOnlineUsers: (([User]) -> Void)?
 
     init() {
         getUsers()
@@ -32,11 +28,28 @@ class ContentManager: ContentManagerDelegate {
     func getUsers() {
         manager.fetchData(completion: { users in
             self.users = users
-            print(users)
         })
     }
 
     func observeRealDB() {
-        
+        realManager.realTimeUpdate { [weak self] ids in
+            guard let self = self else { return }
+            self.filterOnlineUsers(onlineUsersIds: ids, users: self.users)
+        }
+    }
+
+    func filterOnlineUsers(onlineUsersIds: [String], users: [User]) {
+        guard !onlineUsersIds.isEmpty, !users.isEmpty else {
+            getOnlineUsers?([])
+            return
+        }
+
+        let onlineUsers = users.filter { user in
+            onlineUsersIds.contains { id in
+                id == user.id
+            }
+        }
+
+        getOnlineUsers?(onlineUsers)
     }
 }

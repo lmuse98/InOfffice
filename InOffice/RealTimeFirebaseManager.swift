@@ -29,10 +29,8 @@ class RealTimeFirebaseManager {
             
         })
     }
-}
-extension RealTimeFirebaseManager: ContentManagerDelegate {
-    func realTimeUpdate(completion: @escaping ([String]) -> Void ) {
 
+    func realTimeUpdate(completion: @escaping ([String]) -> Void) {
             RealTimeDB.child("atOffice").observe(DataEventType.value, with: { snapshot in
                 guard let children = snapshot.children.allObjects as? [DataSnapshot] else {
                     return
@@ -43,7 +41,8 @@ extension RealTimeFirebaseManager: ContentManagerDelegate {
                 }
 
                 completion(realUsers)
-                print(realUsers)
             })
     }
+
 }
+

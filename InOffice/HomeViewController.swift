@@ -12,14 +12,20 @@ class HomeViewController: UIViewController {
     var userViewModel = UsersViewModel()
     var content = ContentManager()
 
+    private var users: [User]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        tableView.reloadData()
         userViewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        content.observeRealDB()
+
+        content.getOnlineUsers = { [weak self] users in
+            self?.users = users
+            self?.tableView.reloadData()
+            debugPrint(" 🎉 \(users)")
+        }
     }
 
     private lazy var tableView: UITableView = {
