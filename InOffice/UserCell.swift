@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-class CustomCell: UITableViewCell {
+class UserCell: UITableViewCell {
+
+    struct Constant {
+        static let cellName = "UserCell"
+    }
+
     private var profilePic: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit

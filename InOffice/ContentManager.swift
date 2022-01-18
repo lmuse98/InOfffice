@@ -7,22 +7,24 @@
 
 import Foundation
 
-protocol ContentManagerDelegate: AnyObject {
-   //  func realTimeUpdate( completion: @escaping ([String]) -> Void)
+protocol ContentManagerProvider {
+    func getUsers()
+    func observeRealDB()
+    func filterOnlineUsers(onlineUsersIds: [String], users: [User])
 }
 
-class ContentManager: ContentManagerDelegate {
+class ContentManager: ContentManagerProvider {
 
     private let manager = FirebaseManager()
-    private let realManager = RealTimeFirebaseManager()
+    private let realManager: RealTimeFirebaseManagerProvider
 
     var users: [User] = []
     var getOnlineUsers: (([User]) -> Void)?
 
     init() {
+        realManager = RealTimeFirebaseManager()
         getUsers()
         observeRealDB()
-        realManager.delegate = self
     }
 
     func getUsers() {

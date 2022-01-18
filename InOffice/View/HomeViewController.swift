@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        userViewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -32,7 +31,7 @@ class HomeViewController: UIViewController {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self
-        table.register(CustomCell.self, forCellReuseIdentifier: "\(CustomCell.self)")
+        table.register(UserCell.self, forCellReuseIdentifier: UserCell.Constant.cellName)
         table.register(HeaderSectionCell.self, forHeaderFooterViewReuseIdentifier: "\(HeaderSectionCell.self)")
         return table
     }()
@@ -55,7 +54,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.Constant.cellName, for: indexPath) as? UserCell else {
             return UITableViewCell()
         }
         guard userViewModel.users.count >= indexPath.row else { return UITableViewCell() }
@@ -91,8 +90,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
 }
-extension HomeViewController: UsersViewModelDelegate {
-    func reloadData() {
-        tableView.reloadData()
-    }
-}
+

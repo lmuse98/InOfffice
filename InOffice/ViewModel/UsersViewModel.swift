@@ -8,23 +8,18 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-protocol UsersViewModelDelegate: AnyObject {
-    func reloadData()
-}
-
 class UsersViewModel {
 
     var users: [User] = []
+    var contentManager = ContentManager()
 
-    weak var delegate: UsersViewModelDelegate?
-
-    private let manager = FirebaseManager()
+    private let manager: FirebaseManager
     private let realTimeManager = RealTimeFirebaseManager()
 
     init() {
-        manager.fetchData { users in
-            self.users = users
-            self.delegate?.reloadData()
+        manager = FirebaseManager()
+        contentManager.getOnlineUsers = { [weak self] users in
+            self?.users = users
         }
     }
 }

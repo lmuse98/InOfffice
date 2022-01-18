@@ -11,13 +11,19 @@ protocol LoginViewModelDelegate: AnyObject {
     func showError(_ error: Error, _ message: String)
 }
 
+protocol LoginViewModelProvider {
+    func sendValue(email: String, password: String)
+    func validateEmail(email: String) -> Bool
+    func validatePassword(password: String) -> Bool
+}
+
 enum LoginError: Error {
     case wrongUsername
     case wrongPassword
     case unknown
 }
 
-class LoginViewModel {
+class LoginViewModel: LoginViewModelProvider {
 
     weak var delegate: LoginViewModelDelegate?
 

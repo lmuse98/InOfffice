@@ -13,7 +13,7 @@
 		ED3CBFE927849B7800181F24 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = ED3CBFE827849B7800181F24 /* FirebaseFirestore */; };
 		ED3CBFEB278598B900181F24 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = ED3CBFEA278598B900181F24 /* FirebaseFirestoreSwift-Beta */; };
 		ED45AFD62762BBC70004D35F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45AFD52762BBC70004D35F /* HomeViewController.swift */; };
-		ED45AFD82762C38B0004D35F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45AFD72762C38B0004D35F /* CustomCell.swift */; };
+		ED45AFD82762C38B0004D35F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45AFD72762C38B0004D35F /* UserCell.swift */; };
 		ED464C99274BAF4A00D6D45C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED464C98274BAF4A00D6D45C /* AppDelegate.swift */; };
 		ED464C9D274BAF4A00D6D45C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED464C9C274BAF4A00D6D45C /* ViewController.swift */; };
 		ED464CA2274BAF4D00D6D45C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED464CA1274BAF4D00D6D45C /* Assets.xcassets */; };
@@ -41,7 +41,7 @@
 		ED32FCB3276A6B6900631FE2 /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		ED3CBFE527848E5E00181F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED45AFD52762BBC70004D35F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ED45AFD72762C38B0004D35F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		ED45AFD72762C38B0004D35F /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		ED464C95274BAF4A00D6D45C /* InOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED464C98274BAF4A00D6D45C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED464C9C274BAF4A00D6D45C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		ED2F91A627674A400019D919 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
+				ED45AFD52762BBC70004D35F /* HomeViewController.swift */,
 				ED00EA8D27690CD200627114 /* FrontPageViewController.swift */,
 				ED32FCB3276A6B6900631FE2 /* ProfileDetailsViewController.swift */,
 			);
@@ -91,6 +93,7 @@
 		ED3CBFE427848E1B00181F24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDA75ECB27665C0D00D51CAF /* LoginModel.swift */,
 				ED3CBFE527848E5E00181F24 /* User.swift */,
 			);
 			path = Models;
@@ -133,7 +136,6 @@
 			children = (
 				ED464C98274BAF4A00D6D45C /* AppDelegate.swift */,
 				ED464CA1274BAF4D00D6D45C /* Assets.xcassets */,
-				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
 				EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */,
 				EDB3DDF1277200A5004DBCA3 /* ProfileDetailsViewModel.swift */,
 				ED646D44275531B6001756FD /* String.swift */,
@@ -144,9 +146,8 @@
 				EDA75ECA27665BB200D51CAF /* Model */,
 				ED3CBFE427848E1B00181F24 /* Models */,
 				ED3CBFEE2785C19000181F24 /* ViewModel */,
-				ED45AFD72762C38B0004D35F /* CustomCell.swift */,
+				ED45AFD72762C38B0004D35F /* UserCell.swift */,
 				EDA75EB827636B1E00D51CAF /* HeaderSectionCell.swift */,
-				ED45AFD52762BBC70004D35F /* HomeViewController.swift */,
 				ED9B6F75278C444000E07118 /* FirebaseManager.swift */,
 				EDE186082793951400C51B90 /* ContentManager.swift */,
 				ED9B6F77278E07DB00E07118 /* RealTimeFirebaseManager.swift */,
@@ -159,7 +160,6 @@
 		EDA75ECA27665BB200D51CAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EDA75ECB27665C0D00D51CAF /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				ED9B6F78278E07DB00E07118 /* RealTimeFirebaseManager.swift in Sources */,
 				EDA75ECC27665C0D00D51CAF /* LoginModel.swift in Sources */,
 				ED3CBFE627848E5E00181F24 /* User.swift in Sources */,
-				ED45AFD82762C38B0004D35F /* CustomCell.swift in Sources */,
+				ED45AFD82762C38B0004D35F /* UserCell.swift in Sources */,
 				EDB3DDF2277200A6004DBCA3 /* ProfileDetailsViewModel.swift in Sources */,
 				ED00EA8E27690CD200627114 /* FrontPageViewController.swift in Sources */,
 				ED9B6F76278C444000E07118 /* FirebaseManager.swift in Sources */,

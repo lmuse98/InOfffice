@@ -8,16 +8,15 @@
 import Foundation
 import FirebaseDatabase
 
-class RealTimeFirebaseManager {
+protocol RealTimeFirebaseManagerProvider {
+    func realTimeUpdate(completion: @escaping ([String]) -> Void)
+}
+
+class RealTimeFirebaseManager: RealTimeFirebaseManagerProvider {
 
     private var RealTimeDB = Database.database().reference()
-    weak var delegate: ContentManagerDelegate?
 
-    init() {
-        fetchRealTimeData()
-    }
-
-    func fetchRealTimeData() {
+    func realTimeUpdate(completion: @escaping ([String]) -> Void) {
         RealTimeDB.child("atOffice").observe(DataEventType.value, with: { snapshot in
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else {
                 return
@@ -26,23 +25,8 @@ class RealTimeFirebaseManager {
             let realUsers = children.compactMap { child in
                 return child.value as? String
             }
-            
+
+            completion(realUsers)
         })
     }
-
-    func realTimeUpdate(completion: @escaping ([String]) -> Void) {
-            RealTimeDB.child("atOffice").observe(DataEventType.value, with: { snapshot in
-                guard let children = snapshot.children.allObjects as? [DataSnapshot] else {
-                    return
-                }
-
-                let realUsers = children.compactMap { child in
-                    return child.value as? String
-                }
-
-                completion(realUsers)
-            })
-    }
-
 }
-

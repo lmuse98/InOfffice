@@ -7,7 +7,13 @@
 
 import Foundation
 
-class ManagerAuth: ManagerProvider {
+protocol ManagerAuthProvider {
+    func registerUser()
+    func loginUser()
+    func logoutUser()
+}
+
+class ManagerAuth: ManagerAuthProvider {
 
     static let sharedInstance = ManagerAuth()
 
@@ -24,11 +30,4 @@ class ManagerAuth: ManagerProvider {
     func logoutUser() {
 
     }
-}
-
-protocol ManagerProvider {
-    func registerUser()
-    func loginUser()
-    func logoutUser()
-
 }
