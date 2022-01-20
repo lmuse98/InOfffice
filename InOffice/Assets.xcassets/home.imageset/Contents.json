@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "imgProfilePetSittingFilled@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "imgProfilePetSittingFilled@3x.png",
+      "filename" : "Icon-60.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

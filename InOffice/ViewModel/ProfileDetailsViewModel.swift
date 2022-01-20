@@ -8,15 +8,15 @@
 import Foundation
 
 protocol ProfileDetailsViewModelDelegate: AnyObject {
-    func show(user: User)
+    func show(user: User?)
 }
 
 class ProfileDetailsViewModel {
 
     weak var delegate: ProfileDetailsViewModelDelegate?
-    let user: User
+    var user: User?
 
-    init(user: User) {
+    init(user: User?) {
         self.user = user
     }
 
