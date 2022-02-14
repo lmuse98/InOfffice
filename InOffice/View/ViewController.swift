@@ -17,8 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
-        let color = UIColor(named: "background")
-        view.backgroundColor = color
+        view.backgroundColor = .lightGray
         setupViews()
         setupConstraints()
     }

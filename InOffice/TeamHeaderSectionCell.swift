@@ -1,13 +1,13 @@
 //
-//  HeaderSectionCell.swift
+//  TeamHeaderSectionCell.swift
 //  InOffice
 //
-//  Created by Luka Muše on 10.12.2021..
+//  Created by Luka Muše on 05.02.2022..
 //
 
 import UIKit
 
-class HeaderSectionCell: UITableViewHeaderFooterView {
+class TeamHeaderSectionCell: UITableViewHeaderFooterView {
 
     struct Constant {
         static let cellName = "HeaderSectionCell"
@@ -21,7 +21,7 @@ class HeaderSectionCell: UITableViewHeaderFooterView {
 
     private var view: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         return view
     }()
 
