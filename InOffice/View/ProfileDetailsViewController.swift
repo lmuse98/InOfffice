@@ -180,8 +180,6 @@ class ProfileDetailsViewController: UIViewController {
         scrollView.addSubview(tableView)
         scrollView.addSubview(stackView)
         scrollView.addSubview(stackView2)
-        scrollView.addSubview(scrollView)
-        scrollView.addSubview(stackView2)
         stackView.isHidden = true
         stackView.addArrangedSubview(faceIconView)
         stackView.addArrangedSubview(instaIconView)
