@@ -13,7 +13,7 @@ class ProfileDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupBackground()
+        setupBackground()
         self.title = "Profile"
         setupViews()
         setupConstraints()
@@ -31,9 +31,9 @@ class ProfileDetailsViewController: UIViewController {
     }
 
     private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView(frame: CGRect(x: 10, y: 10, width: view.frame.size.width-20, height: view.frame.size.height-20))
-        scroll.contentSize = CGSize(width: view.frame.size.width, height: 2200)
-        scroll.backgroundColor = .green
+        let scroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 8, height: view.frame.size.height))
+        scroll.contentSize = CGSize(width: view.frame.size.width, height: 1200)
+        scroll.backgroundColor = .clear
         return scroll
     }()
 

@@ -16,7 +16,8 @@ class TeamsViewController: UIViewController {
 
         setupBackground()
         setupTableView()
-        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.barTintColor = .white
+        
     }
 
     func setupBackground() {

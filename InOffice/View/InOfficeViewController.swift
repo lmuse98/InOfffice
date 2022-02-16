@@ -81,14 +81,18 @@ extension InOfficeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func selectUser (_ indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
         let user = userViewModel.users[indexPath.row]
         let viewModel = ProfileDetailsViewModel(user: user)
         let profileDetailsVC = ProfileDetailsViewController(viewModel: viewModel)
         profileDetailsVC.modalPresentationStyle = .pageSheet
         navigationController?.pushViewController(profileDetailsVC, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectUser(indexPath)
         //present(profileDetailsVC, animated: true)
     }
 

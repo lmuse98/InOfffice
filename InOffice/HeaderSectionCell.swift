@@ -13,13 +13,13 @@ class HeaderSectionCell: UITableViewHeaderFooterView {
         static let cellName = "HeaderSectionCell"
     }
 
-    private var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 22)
         return label
     }()
 
-    private var view: UIView = {
+    private lazy var view: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
@@ -44,7 +44,7 @@ class HeaderSectionCell: UITableViewHeaderFooterView {
         view.snp.makeConstraints { make in
             make.leading.equalTo(snp.leading)
             make.top.equalToSuperview()
-            make.bottom.equalTo(snp.bottom)
+            make.bottom.equalTo(view)
             make.trailing.equalTo(snp.trailing)
         }
         titleLabel.snp.makeConstraints { make in

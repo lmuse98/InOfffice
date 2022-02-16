@@ -26,6 +26,9 @@
 		ED81ABD8274BC43200B61366 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD7274BC43200B61366 /* Alamofire */; };
 		ED8D3B7E275668AE00BDAF8D /* ManagerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */; };
 		ED8D3B812757988E00BDAF8D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ED8D3B802757988D00BDAF8D /* .swiftlint.yml */; };
+		ED90B4D727BAE2020008009C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4D627BAE2010008009C /* HomeViewController.swift */; };
+		ED90B4D927BAE76D0008009C /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4D827BAE76D0008009C /* HomeCollectionViewCell.swift */; };
+		ED90B4DB27BBC6090008009C /* OfficeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4DA27BBC6090008009C /* OfficeCollectionViewCell.swift */; };
 		ED9B6F74278C431900E07118 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B6F73278C431900E07118 /* UsersViewModel.swift */; };
 		ED9B6F76278C444000E07118 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B6F75278C444000E07118 /* FirebaseManager.swift */; };
 		ED9B6F78278E07DB00E07118 /* RealTimeFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B6F77278E07DB00E07118 /* RealTimeFirebaseManager.swift */; };
@@ -37,7 +40,7 @@
 		EDE186092793951400C51B90 /* ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE186082793951400C51B90 /* ContentManager.swift */; };
 		EDE444B827AC0B460036FF54 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE444B727AC0B460036FF54 /* TeamCell.swift */; };
 		EDF2519C279856DC00C20CAA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2519B279856DC00C20CAA /* TabBarViewController.swift */; };
-		EDF2519E279869F900C20CAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2519D279869F900C20CAA /* HomeViewController.swift */; };
+		EDF2519E279869F900C20CAA /* HmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2519D279869F900C20CAA /* HmeViewController.swift */; };
 		EDFC7BD52758CF9F0077677B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */; };
 		EDFE58DE27B56DB300F90898 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE58DD27B56DB300F90898 /* TeamDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +62,9 @@
 		ED7C7402279A1119000A0D55 /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAuth.swift; sourceTree = "<group>"; };
 		ED8D3B802757988D00BDAF8D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		ED90B4D627BAE2010008009C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../HomeViewController.swift; sourceTree = "<group>"; };
+		ED90B4D827BAE76D0008009C /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED90B4DA27BBC6090008009C /* OfficeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED9B6F73278C431900E07118 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		ED9B6F75278C444000E07118 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		ED9B6F77278E07DB00E07118 /* RealTimeFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeFirebaseManager.swift; sourceTree = "<group>"; };
@@ -69,7 +75,7 @@
 		EDE186082793951400C51B90 /* ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManager.swift; sourceTree = "<group>"; };
 		EDE444B727AC0B460036FF54 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		EDF2519B279856DC00C20CAA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		EDF2519D279869F900C20CAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EDF2519D279869F900C20CAA /* HmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HmeViewController.swift; sourceTree = "<group>"; };
 		EDFC7BD42758CF9E0077677B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EDFE58DD27B56DB300F90898 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,9 +100,10 @@
 		ED2F91A627674A400019D919 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED90B4D627BAE2010008009C /* HomeViewController.swift */,
 				EDF2519B279856DC00C20CAA /* TabBarViewController.swift */,
 				ED7C7402279A1119000A0D55 /* TeamsViewController.swift */,
-				EDF2519D279869F900C20CAA /* HomeViewController.swift */,
+				EDF2519D279869F900C20CAA /* HmeViewController.swift */,
 				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
 				ED45AFD52762BBC70004D35F /* InOfficeViewController.swift */,
 				ED00EA8D27690CD200627114 /* FrontPageViewController.swift */,
@@ -170,6 +177,8 @@
 				ED8D3B802757988D00BDAF8D /* .swiftlint.yml */,
 				ED6BDCA127AF1C4F004D79F6 /* TeamHeaderSectionCell.swift */,
 				EDFE58DD27B56DB300F90898 /* TeamDetailsViewController.swift */,
+				ED90B4D827BAE76D0008009C /* HomeCollectionViewCell.swift */,
+				ED90B4DA27BBC6090008009C /* OfficeCollectionViewCell.swift */,
 			);
 			path = InOffice;
 			sourceTree = "<group>";
@@ -283,7 +292,7 @@
 			files = (
 				ED646D45275531B6001756FD /* String.swift in Sources */,
 				ED9B6F74278C431900E07118 /* UsersViewModel.swift in Sources */,
-				EDF2519E279869F900C20CAA /* HomeViewController.swift in Sources */,
+				EDF2519E279869F900C20CAA /* HmeViewController.swift in Sources */,
 				EDFC7BD52758CF9F0077677B /* LoginViewModel.swift in Sources */,
 				ED464C9D274BAF4A00D6D45C /* ViewController.swift in Sources */,
 				ED32FCB4276A6B6900631FE2 /* ProfileDetailsViewController.swift in Sources */,
@@ -292,6 +301,7 @@
 				ED45AFD62762BBC70004D35F /* InOfficeViewController.swift in Sources */,
 				ED9B6F78278E07DB00E07118 /* RealTimeFirebaseManager.swift in Sources */,
 				EDA75ECC27665C0D00D51CAF /* LoginModel.swift in Sources */,
+				ED90B4D727BAE2020008009C /* HomeViewController.swift in Sources */,
 				ED6BDCA227AF1C4F004D79F6 /* TeamHeaderSectionCell.swift in Sources */,
 				ED3CBFE627848E5E00181F24 /* User.swift in Sources */,
 				ED45AFD82762C38B0004D35F /* UserCell.swift in Sources */,
@@ -300,9 +310,11 @@
 				ED00EA8E27690CD200627114 /* FrontPageViewController.swift in Sources */,
 				ED9B6F76278C444000E07118 /* FirebaseManager.swift in Sources */,
 				EDE444B827AC0B460036FF54 /* TeamCell.swift in Sources */,
+				ED90B4D927BAE76D0008009C /* HomeCollectionViewCell.swift in Sources */,
 				EDA75EB927636B1E00D51CAF /* HeaderSectionCell.swift in Sources */,
 				EDE186092793951400C51B90 /* ContentManager.swift in Sources */,
 				ED8D3B7E275668AE00BDAF8D /* ManagerAuth.swift in Sources */,
+				ED90B4DB27BBC6090008009C /* OfficeCollectionViewCell.swift in Sources */,
 				EDFE58DE27B56DB300F90898 /* TeamDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

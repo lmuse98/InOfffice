@@ -14,19 +14,19 @@ class UserCell: UITableViewCell {
         static let cellName = "UserCell"
     }
 
-    private var profilePic: UIImageView = {
+    private lazy var profilePic: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
-    private var userNameLabel: UILabel = {
+    private lazy var userNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         return label
     }()
 
-    private var descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         return label

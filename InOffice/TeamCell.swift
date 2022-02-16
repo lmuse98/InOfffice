@@ -13,26 +13,26 @@ class TeamCell: UITableViewCell {
         static let cellName = "TeamCell"
     }
 
-    lazy var backView: UIView = {
+    private lazy var backView: UIView = {
         let backView = UIView()
         backView.layer.cornerRadius = 10
         backView.backgroundColor = .white
         return backView
     }()
 
-    private var nameTeamLabel: UILabel = {
+    private lazy var nameTeamLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         return label
     }()
 
-    private var numberPeopleLabel: UILabel = {
+    private lazy var numberPeopleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         return label
     }()
 
-    private var avatarsPeople: UIImageView = {
+    private lazy var avatarsPeople: UIImageView = {
         let avatars = UIImageView()
         return avatars
     }()
@@ -55,7 +55,7 @@ class TeamCell: UITableViewCell {
     func setupConstraints() {
         backView.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(10)
-            make.trailing.equalTo(self).offset(-10)
+            make.trailing.equalTo(self).inset(10)
             make.height.equalTo(130)
         }
     }
