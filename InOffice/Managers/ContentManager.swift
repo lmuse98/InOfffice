@@ -9,6 +9,7 @@ import Foundation
 
 protocol ContentManagerProvider {
     func getUsers()
+    func getTeams()
     func observeRealDB()
     func filterOnlineUsers(onlineUsersIds: [String], users: [User])
 }
@@ -19,17 +20,25 @@ class ContentManager: ContentManagerProvider {
     private let realManager: RealTimeFirebaseManagerProvider
 
     var users: [User] = []
+    var teams: [Team] = []
     var getOnlineUsers: (([User]) -> Void)?
 
     init() {
         realManager = RealTimeFirebaseManager()
         getUsers()
+        getTeams()
         observeRealDB()
     }
 
     func getUsers() {
-        manager.fetchData(completion: { users in
+        manager.fetchUsersData(completion: { users in
             self.users = users
+        })
+    }
+
+    func getTeams() {
+        manager.fetchTeamsData(completion: { teams in
+            self.teams = teams
         })
     }
 

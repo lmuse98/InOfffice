@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED00C50127C010360076481C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED00C50027C010350076481C /* Team.swift */; };
 		ED00EA8E27690CD200627114 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED00EA8D27690CD200627114 /* FrontPageViewController.swift */; };
 		ED32FCB4276A6B6900631FE2 /* ProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32FCB3276A6B6900631FE2 /* ProfileDetailsViewController.swift */; };
 		ED3CBFE627848E5E00181F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CBFE527848E5E00181F24 /* User.swift */; };
@@ -24,6 +25,7 @@
 		ED7C7403279A1119000A0D55 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C7402279A1119000A0D55 /* TeamsViewController.swift */; };
 		ED81ABD5274BC10900B61366 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD4274BC10900B61366 /* SnapKit */; };
 		ED81ABD8274BC43200B61366 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED81ABD7274BC43200B61366 /* Alamofire */; };
+		ED882FF327C40E5100E8DCB8 /* HomeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED882FF227C40E5100E8DCB8 /* HomeeViewController.swift */; };
 		ED8D3B7E275668AE00BDAF8D /* ManagerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */; };
 		ED8D3B812757988E00BDAF8D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ED8D3B802757988D00BDAF8D /* .swiftlint.yml */; };
 		ED90B4D727BAE2020008009C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4D627BAE2010008009C /* HomeViewController.swift */; };
@@ -46,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED00C50027C010350076481C /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		ED00EA8D27690CD200627114 /* FrontPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		ED32FCB3276A6B6900631FE2 /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		ED3CBFE527848E5E00181F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		ED646D44275531B6001756FD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		ED6BDCA127AF1C4F004D79F6 /* TeamHeaderSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHeaderSectionCell.swift; sourceTree = "<group>"; };
 		ED7C7402279A1119000A0D55 /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		ED882FF227C40E5100E8DCB8 /* HomeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeeViewController.swift; sourceTree = "<group>"; };
 		ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAuth.swift; sourceTree = "<group>"; };
 		ED8D3B802757988D00BDAF8D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		ED90B4D627BAE2010008009C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../HomeViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +108,11 @@
 				EDF2519B279856DC00C20CAA /* TabBarViewController.swift */,
 				ED7C7402279A1119000A0D55 /* TeamsViewController.swift */,
 				EDF2519D279869F900C20CAA /* HmeViewController.swift */,
+				EDFE58DD27B56DB300F90898 /* TeamDetailsViewController.swift */,
 				ED464C9C274BAF4A00D6D45C /* ViewController.swift */,
 				ED45AFD52762BBC70004D35F /* InOfficeViewController.swift */,
 				ED00EA8D27690CD200627114 /* FrontPageViewController.swift */,
+				ED882FF227C40E5100E8DCB8 /* HomeeViewController.swift */,
 				ED32FCB3276A6B6900631FE2 /* ProfileDetailsViewController.swift */,
 			);
 			path = View;
@@ -117,6 +123,7 @@
 			children = (
 				EDA75ECB27665C0D00D51CAF /* LoginModel.swift */,
 				ED3CBFE527848E5E00181F24 /* User.swift */,
+				ED00C50027C010350076481C /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,19 +175,26 @@
 				ED3CBFE427848E1B00181F24 /* Models */,
 				ED3CBFEE2785C19000181F24 /* ViewModel */,
 				ED45AFD72762C38B0004D35F /* UserCell.swift */,
+				ED60794027C3A536008169D5 /* Managers */,
 				EDE444B727AC0B460036FF54 /* TeamCell.swift */,
 				EDA75EB827636B1E00D51CAF /* HeaderSectionCell.swift */,
-				ED9B6F75278C444000E07118 /* FirebaseManager.swift */,
-				EDE186082793951400C51B90 /* ContentManager.swift */,
-				ED9B6F77278E07DB00E07118 /* RealTimeFirebaseManager.swift */,
-				ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */,
-				ED8D3B802757988D00BDAF8D /* .swiftlint.yml */,
 				ED6BDCA127AF1C4F004D79F6 /* TeamHeaderSectionCell.swift */,
-				EDFE58DD27B56DB300F90898 /* TeamDetailsViewController.swift */,
 				ED90B4D827BAE76D0008009C /* HomeCollectionViewCell.swift */,
 				ED90B4DA27BBC6090008009C /* OfficeCollectionViewCell.swift */,
+				ED8D3B802757988D00BDAF8D /* .swiftlint.yml */,
 			);
 			path = InOffice;
+			sourceTree = "<group>";
+		};
+		ED60794027C3A536008169D5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D3B7D275668AE00BDAF8D /* ManagerAuth.swift */,
+				EDE186082793951400C51B90 /* ContentManager.swift */,
+				ED9B6F77278E07DB00E07118 /* RealTimeFirebaseManager.swift */,
+				ED9B6F75278C444000E07118 /* FirebaseManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +313,7 @@
 				EDF2519C279856DC00C20CAA /* TabBarViewController.swift in Sources */,
 				ED464C99274BAF4A00D6D45C /* AppDelegate.swift in Sources */,
 				ED45AFD62762BBC70004D35F /* InOfficeViewController.swift in Sources */,
+				ED882FF327C40E5100E8DCB8 /* HomeeViewController.swift in Sources */,
 				ED9B6F78278E07DB00E07118 /* RealTimeFirebaseManager.swift in Sources */,
 				EDA75ECC27665C0D00D51CAF /* LoginModel.swift in Sources */,
 				ED90B4D727BAE2020008009C /* HomeViewController.swift in Sources */,
@@ -308,6 +323,7 @@
 				ED7C7403279A1119000A0D55 /* TeamsViewController.swift in Sources */,
 				EDB3DDF2277200A6004DBCA3 /* ProfileDetailsViewModel.swift in Sources */,
 				ED00EA8E27690CD200627114 /* FrontPageViewController.swift in Sources */,
+				ED00C50127C010360076481C /* Team.swift in Sources */,
 				ED9B6F76278C444000E07118 /* FirebaseManager.swift in Sources */,
 				EDE444B827AC0B460036FF54 /* TeamCell.swift in Sources */,
 				ED90B4D927BAE76D0008009C /* HomeCollectionViewCell.swift in Sources */,

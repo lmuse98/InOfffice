@@ -50,6 +50,7 @@ class TeamCell: UITableViewCell {
 
     func setupViews() {
         addSubview(backView)
+        backView.addSubview(nameTeamLabel)
     }
 
     func setupConstraints() {
@@ -57,6 +58,9 @@ class TeamCell: UITableViewCell {
             make.leading.equalTo(self).offset(10)
             make.trailing.equalTo(self).inset(10)
             make.height.equalTo(130)
+        }
+        nameTeamLabel.snp.makeConstraints { make in
+            make.leading.equalTo(20)
         }
     }
 }

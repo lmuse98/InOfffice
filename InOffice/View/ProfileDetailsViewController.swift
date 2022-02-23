@@ -31,7 +31,7 @@ class ProfileDetailsViewController: UIViewController {
     }
 
     private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 8, height: view.frame.size.height))
+        let scroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         scroll.contentSize = CGSize(width: view.frame.size.width, height: 1200)
         scroll.backgroundColor = .clear
         return scroll
@@ -87,15 +87,22 @@ class ProfileDetailsViewController: UIViewController {
     private lazy var avatar: UIImageView = {
         let image = UIImageView()
         image.layer.borderWidth = 2
-        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.borderColor = UIColor.systemFill.cgColor
         image.layer.cornerRadius = 60
         image.clipsToBounds = true
         return image
     }()
 
-    private lazy var titleLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = .boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
+
+    private lazy var roleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .black
         return label
     }()
@@ -103,7 +110,7 @@ class ProfileDetailsViewController: UIViewController {
     private lazy var segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Personal", "Social"])
         control.selectedSegmentIndex = 0
-        control.layer.borderColor = UIColor.gray.cgColor
+        control.layer.borderColor = UIColor.lightGray.cgColor
         control.tintColor = .gray
         control.addTarget(self, action: #selector(handleSegmentedControl(_:)), for: .valueChanged)
         return control
@@ -174,7 +181,8 @@ class ProfileDetailsViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(upperView)
         scrollView.addSubview(avatar)
-        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(roleLabel)
         scrollView.addSubview(segmentedControl)
         scrollView.addSubview(editButton)
         scrollView.addSubview(tableView)
@@ -193,13 +201,12 @@ class ProfileDetailsViewController: UIViewController {
     private func setupConstraints() {
         avatar.snp.makeConstraints { make in
             make.centerX.equalTo(upperView)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
+            make.top.equalTo(upperView).offset(20)
             make.width.equalTo(120)
             make.height.equalTo(120)
         }
         upperView.snp.makeConstraints { make in
-            make.top.equalTo(view)
-            make.height.equalTo(260)
+            make.height.equalTo(220)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
         }
@@ -207,22 +214,29 @@ class ProfileDetailsViewController: UIViewController {
             make.centerX.equalTo(view)
             make.bottom.equalTo(upperView.snp.bottom).offset(70)
             make.width.equalTo(300)
+            make.height.equalTo(30)
         }
-        titleLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(upperView)
-            make.bottom.equalTo(avatar.snp.bottom).offset(45)
+            make.bottom.equalTo(avatar.snp.bottom).offset(35)
         }
+
+        roleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(upperView)
+            make.top.equalTo(nameLabel.snp.bottom).offset(9)
+        }
+
         stackView.snp.makeConstraints { make in
             make.leading.equalTo(view).offset(70)
             make.trailing.equalTo(view).offset(-70)
-            make.top.equalTo(segmentedControl.snp.bottom).offset(75)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(30)
             make.height.equalTo(320)
             make.centerX.equalTo(view)
         }
         stackView2.snp.makeConstraints { make in
             make.leading.equalTo(view).offset(70)
             make.trailing.equalTo(view).offset(-70)
-            make.top.equalTo(segmentedControl.snp.bottom).offset(75)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(30)
             make.height.equalTo(320)
             make.centerX.equalTo(view)
         }
@@ -231,7 +245,8 @@ class ProfileDetailsViewController: UIViewController {
 
 extension ProfileDetailsViewController: ProfileDetailsViewModelDelegate {
     func show(user: User?) {
-        titleLabel.text = user?.name
+        nameLabel.text = user?.name
+        roleLabel.text = user?.role
         //avatar.image = user.photoId
     }
 }
