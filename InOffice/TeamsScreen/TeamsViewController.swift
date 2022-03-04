@@ -8,6 +8,8 @@
 import UIKit
 
 class TeamsViewController: UIViewController {
+    
+    var teamsViewModel = TeamsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,7 @@ class TeamsViewController: UIViewController {
         setupBackground()
         setupTableView()
         navigationController?.navigationBar.barTintColor = .white
-    
+
     }
 
     func setupBackground() {
@@ -53,13 +55,18 @@ class TeamsViewController: UIViewController {
 }
 extension TeamsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return teamsViewModel.teams.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TeamCell.Constant.cellName, for: indexPath)
-        cell.layer.shadowOpacity = 0
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TeamCell.Constant.cellName, for: indexPath) as? TeamCell else {
+            return UITableViewCell()
+        }
+        guard teamsViewModel.teams.count >= indexPath.row else { return UITableViewCell() }
+        let team = teamsViewModel.teams[indexPath.row]
+        cell.setData(team: team)
         cell.backgroundColor = .clear
+        cell.layer.shadowOpacity = 0
         return cell
     }
 

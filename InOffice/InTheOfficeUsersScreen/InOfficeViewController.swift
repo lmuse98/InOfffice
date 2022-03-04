@@ -23,7 +23,7 @@ class InOfficeViewController: UIViewController {
         content.getOnlineUsers = { [weak self] users in
             self?.users = users
             self?.tableView.reloadData()
-            debugPrint(" 🎉 \(users)")
+            //debugPrint(" 🎉 \(users)")
         }
     }
 

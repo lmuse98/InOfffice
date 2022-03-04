@@ -26,7 +26,7 @@ class TabBarViewController: UIViewController {
         tabBarVC.tabBar.layer.shadowColor = UIColor.darkGray.cgColor
         tabBarVC.tabBar.layer.shadowOpacity = 0.5
 
-        let homeVC = UINavigationController(rootViewController: HomeeViewController())
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
         let inOfficeVC = UINavigationController(rootViewController: InOfficeViewController())
         let profileVC = UINavigationController(rootViewController: ProfileDetailsViewController(viewModel: profileViewModel))
         let teamsVC = UINavigationController(rootViewController: TeamsViewController())

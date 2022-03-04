@@ -13,11 +13,11 @@ class UsersViewModel {
     var users: [User] = []
     var contentManager = ContentManager()
 
-    private let manager: FirebaseManager
+    private let manager: FirebaseService
     private let realTimeManager = RealTimeFirebaseManager()
 
     init() {
-        manager = FirebaseManager()
+        manager = FirebaseService()
         contentManager.getOnlineUsers = { [weak self] users in
             self?.users = users
         }

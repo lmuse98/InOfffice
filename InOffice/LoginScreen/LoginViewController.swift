@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     var viewModel = LoginViewModel()
 
@@ -188,7 +188,7 @@ extension UIViewController {
         }
    }
 
-extension ViewController: LoginViewModelDelegate {
+extension LoginViewController: LoginViewModelDelegate {
     func showError(_ error: Error, _ message: String) {
         openAlert(title: "Pogreska", message: message, actionTitles: ["U redu"], actionStyle: [.default], actions: [nil])
     }

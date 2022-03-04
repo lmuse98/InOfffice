@@ -29,6 +29,8 @@ class TeamCell: UITableViewCell {
     private lazy var numberPeopleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
+        label.textColor = .systemGray2
+        label.text = "People()"
         return label
     }()
 
@@ -51,6 +53,7 @@ class TeamCell: UITableViewCell {
     func setupViews() {
         addSubview(backView)
         backView.addSubview(nameTeamLabel)
+        backView.addSubview(numberPeopleLabel)
     }
 
     func setupConstraints() {
@@ -61,6 +64,15 @@ class TeamCell: UITableViewCell {
         }
         nameTeamLabel.snp.makeConstraints { make in
             make.leading.equalTo(20)
+            make.top.equalTo(10)
         }
+        numberPeopleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.top.equalTo(50)
+        }
+    }
+
+    func setData(team: Team) {
+        nameTeamLabel.text = team.id
     }
 }

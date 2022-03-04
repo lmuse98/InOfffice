@@ -1,15 +1,15 @@
 //
-//  OfficeCollectionViewCell.swift
+//  DeskCollectionViewCell.swift
 //  InOffice
 //
-//  Created by Luka Muše on 15.02.2022..
+//  Created by Luka Muše on 01.03.2022..
 //
 
 import UIKit
 
-class OfficeCollectionViewCell: UICollectionViewCell {
-
-    static let identifier = "OfficeCollectionViewCell"
+class DeskCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "DeskCollectionViewCell"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +24,7 @@ class OfficeCollectionViewCell: UICollectionViewCell {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Coming to office?"
+        label.text = "Get a desk for next day"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
@@ -38,12 +38,12 @@ class OfficeCollectionViewCell: UICollectionViewCell {
     }()
 
     private lazy var imageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: ""))
+        let image = UIImageView(image: UIImage(named: "desk"))
         return image
     }()
 
     func setupCell() {
-        contentView.backgroundColor = .systemFill
+        contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 15
     }
 

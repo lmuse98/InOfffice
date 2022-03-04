@@ -14,7 +14,7 @@ protocol FirebaseManagerDelegate: AnyObject {
     func fetchTeamsData(completion: @escaping ([Team]) -> Void)
 }
 
-class FirebaseManager {
+class FirebaseService {
 
     private var db = Firestore.firestore()
 
@@ -32,6 +32,21 @@ class FirebaseManager {
         }
     }
 
+    func fetchGamingUsers( completion: @escaping ([User]) -> Void) {
+        db.collection("users").whereField("team", isEqualTo: "Gaming").addSnapshotListener { ( querySnapshot, error ) in
+            if let error = error {
+                print("Error getting users: \(error.localizedDescription)")
+                return
+            }
+
+            let gamingUsers = querySnapshot?.documents.compactMap({ document in
+                return try? document.data(as: User.self)
+            }) ?? []
+            completion(gamingUsers)
+            debugPrint(gamingUsers)
+        }
+    }
+
     func fetchTeamsData( completion: @escaping ([Team]) -> Void) {
         db.collection("teams").addSnapshotListener { ( querySnapshot, error ) in
             if let error = error {
@@ -43,7 +58,6 @@ class FirebaseManager {
                 return try? document.data(as: Team.self)
             }) ?? []
             completion(teams)
-            debugPrint(teams)
         }
     }
 }
