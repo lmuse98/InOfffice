@@ -22,7 +22,8 @@ class TeamCell: UITableViewCell {
 
     private lazy var nameTeamLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .init(red: 0.07, green: 0.05, blue: 0.26, alpha: 1.00)
         return label
     }()
 
@@ -30,7 +31,7 @@ class TeamCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         label.textColor = .systemGray2
-        label.text = "People()"
+        label.text = "People(6)"
         return label
     }()
 
@@ -64,11 +65,11 @@ class TeamCell: UITableViewCell {
         }
         nameTeamLabel.snp.makeConstraints { make in
             make.leading.equalTo(20)
-            make.top.equalTo(10)
+            make.top.equalTo(16)
         }
         numberPeopleLabel.snp.makeConstraints { make in
             make.leading.equalTo(20)
-            make.top.equalTo(50)
+            make.top.equalTo(55)
         }
     }
 

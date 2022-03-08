@@ -30,23 +30,24 @@ class LunchStatisticsCollectionViewCell: UICollectionViewCell {
     }()
 
     private lazy var imageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "stat2"))
+        let image = UIImageView(image: UIImage(named: "stat1")?.withRenderingMode(.alwaysTemplate))
+        image.tintColor = .systemGray2
         return image
     }()
 
-    func setupCell() {
+    private func setupCell() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 15
     }
 
-    func setupViews() {
+    private func setupViews() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(imageView)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         imageView.snp.makeConstraints { make in
-            make.bottom.equalTo(1)
+            make.bottom.equalTo(-15)
             make.centerX.equalTo(contentView)
         }
     }

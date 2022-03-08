@@ -29,25 +29,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidAppear(animated)
         showImage(true)
     }
-
+    /*
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard let shouldResize = shouldResize
         else { assertionFailure("shouldResize wasn't set. reason could be non-handled device orientation state"); return }
-
+        
         if shouldResize {
             moveAndResizeImageForPortrait()
         }
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let shouldResize = shouldResize
         else { assertionFailure("shouldResize wasn't set. reason could be non-handled device orientation state"); return }
-
+        
         if shouldResize {
             moveAndResizeImageForPortrait()
         }
     }
+*/
 
     private var imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "user"))
@@ -73,7 +74,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return collectionView
     }()
 
-    func setupViews() {
+    private func setupViews() {
         view.addSubview(collectionView)
     }
 
@@ -94,7 +95,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     private func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Name"
+        self.title = "Name"
 
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(imageView)
@@ -178,30 +179,26 @@ extension HomeViewController {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OfficeCollectionViewCell.identifier, for: indexPath)
             return cell
-        }
-        else if indexPath.section == 1 {
+        } else if indexPath.section == 1 {
             
             if indexPath.item == 0 {
-
+                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchStatisticsCollectionViewCell.identifier, for: indexPath)
                 return cell
-            }
-            else {
+            } else {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskReservationsCollectionViewCell.identifier, for: indexPath)
                 return cell
             }
-        }
-        else if indexPath.section == 2 {
+        } else if indexPath.section == 2 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskCollectionViewCell.identifier, for: indexPath)
             return cell
-        }
-        else if indexPath.section == 3 {
+        } else if indexPath.section == 3 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchCollectionViewCell.identifier, for: indexPath)
             return cell

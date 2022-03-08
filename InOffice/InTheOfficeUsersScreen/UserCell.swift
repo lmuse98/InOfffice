@@ -57,7 +57,7 @@ class UserCell: UITableViewCell {
         stackView.addArrangedSubview(descriptionLabel)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         profilePic.snp.makeConstraints { make in
             make.leading.equalTo(10)
             make.centerY.equalTo(self)

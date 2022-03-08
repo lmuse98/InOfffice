@@ -96,14 +96,14 @@ class ProfileDetailsViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
 
     private lazy var roleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
 

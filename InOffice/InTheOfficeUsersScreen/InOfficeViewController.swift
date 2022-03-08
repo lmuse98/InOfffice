@@ -32,6 +32,7 @@ class InOfficeViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         table.separatorStyle = .none
+        table.backgroundColor = .clear
         table.register(UserCell.self, forCellReuseIdentifier: UserCell.Constant.cellName)
         table.register(HeaderSectionCell.self, forHeaderFooterViewReuseIdentifier: HeaderSectionCell.Constant.cellName)
         return table
@@ -77,6 +78,7 @@ extension InOfficeViewController: UITableViewDelegate, UITableViewDataSource {
         guard userViewModel.users.count >= indexPath.row else { return UITableViewCell() }
         let user = userViewModel.users[indexPath.row]
         cell.setData(user)
+        cell.backgroundColor = .clear
         cell.accessoryType = .detailButton
         return cell
     }
