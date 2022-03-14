@@ -51,13 +51,13 @@ class TeamCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    private func setupViews() {
         addSubview(backView)
         backView.addSubview(nameTeamLabel)
         backView.addSubview(numberPeopleLabel)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         backView.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(10)
             make.trailing.equalTo(self).inset(10)

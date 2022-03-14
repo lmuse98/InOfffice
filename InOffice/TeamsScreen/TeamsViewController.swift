@@ -8,7 +8,7 @@
 import UIKit
 
 class TeamsViewController: UIViewController {
-    
+
     var teamsViewModel = TeamsViewModel()
 
     override func viewDidLoad() {
@@ -76,7 +76,6 @@ extension TeamsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadRows(at: [indexPath], with: .none)
         let teamDetailsVC = TeamDetailsViewController()
         teamDetailsVC.modalPresentationStyle = .pageSheet
         navigationController?.pushViewController(teamDetailsVC, animated: true)

@@ -72,7 +72,7 @@ class UserCell: UITableViewCell {
 
     func setData(_ user: User) {
         //profilePic.image = user.profilePic
-        descriptionLabel.text = user.role
+        descriptionLabel.text = user.role 
         userNameLabel.text = user.name
     }
 }

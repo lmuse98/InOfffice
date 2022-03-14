@@ -6,9 +6,19 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
+
 
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    enum Section: Int {
+        case comingToOffice
+        case statisticsLunch
+        case statisticsReservationDesk
+        case deskReservation
+        case lunch
+    }
 
     private var shouldResize: Bool?
 
@@ -20,41 +30,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         view.backgroundColor = .white
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        showImage(false)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showImage(true)
-    }
-    /*
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        guard let shouldResize = shouldResize
-        else { assertionFailure("shouldResize wasn't set. reason could be non-handled device orientation state"); return }
-        
-        if shouldResize {
-            moveAndResizeImageForPortrait()
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let shouldResize = shouldResize
-        else { assertionFailure("shouldResize wasn't set. reason could be non-handled device orientation state"); return }
-        
-        if shouldResize {
-            moveAndResizeImageForPortrait()
-        }
-    }
-*/
-
     private var imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "user"))
-        //let tapImage = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapImage:)))
-        //image.isUserInteractionEnabled = true
-        //image.addGestureRecognizer(tapImage)
+        //ToDo: Create an action for image
         return image
     }()
 
@@ -99,49 +77,40 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(imageView)
-        imageView.layer.cornerRadius = Const.ImageSizeForLargeState / 2
+        imageView.layer.cornerRadius = Const.imageSizeForLargeState / 2
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.rightAnchor.constraint(equalTo: navigationBar.rightAnchor,
-                                             constant: -Const.ImageRightMargin),
+                                             constant: -Const.imageRightMargin),
             imageView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor,
-                                              constant: -Const.ImageBottomMarginForLargeState),
-            imageView.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
+                                              constant: -Const.imageBottomMarginForLargeState),
+            imageView.heightAnchor.constraint(equalToConstant: Const.imageSizeForLargeState),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])
     }
-    /*
-     @objc func imageTapped(tapImage: UITapGestureRecognizer) {
-     
-     let tappedImage = tapImage.view as! UIImageView
-     
-     //let viewModel = ProfileDetailsViewModel(user: user)
-     let profileDetailsVC = ProfileDetailsViewController(viewModel: viewModel)
-     profileDetailsVC.modalPresentationStyle = .pageSheet
-     navigationController?.pushViewController(profileDetailsVC, animated: true) */
 
     private func moveAndResizeImageForPortrait() {
         guard let height = navigationController?.navigationBar.frame.height else { return }
 
         let coeff: CGFloat = {
-            let delta = height - Const.NavBarHeightSmallState
-            let heightDifferenceBetweenStates = (Const.NavBarHeightLargeState - Const.NavBarHeightSmallState)
+            let delta = height - Const.navBarHeightSmallState
+            let heightDifferenceBetweenStates = (Const.navBarHeightLargeState - Const.navBarHeightSmallState)
             return delta / heightDifferenceBetweenStates
         }()
 
-        let factor = Const.ImageSizeForSmallState / Const.ImageSizeForLargeState
+        let factor = Const.imageSizeForSmallState / Const.imageSizeForLargeState
 
         let scale: CGFloat = {
             let sizeAddendumFactor = coeff * (1.0 - factor)
             return min(1.0, sizeAddendumFactor + factor)
         }()
 
-        let sizeDiff = Const.ImageSizeForLargeState * (1.0 - factor)
+        let sizeDiff = Const.imageSizeForLargeState * (1.0 - factor)
 
         let yTranslation: CGFloat = {
-            let maxYTranslation = Const.ImageBottomMarginForLargeState - Const.ImageBottomMarginForSmallState + sizeDiff
-            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Const.ImageBottomMarginForSmallState + sizeDiff))))
+            let maxYTranslation = Const.imageBottomMarginForLargeState - Const.imageBottomMarginForSmallState + sizeDiff
+            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Const.imageBottomMarginForSmallState + sizeDiff))))
         }()
 
         let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
@@ -152,9 +121,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     private func resizeImageForLandscape() {
-        let yTranslation = Const.ImageSizeForLargeState * Const.ScaleForImageSizeForLandscape
+        let yTranslation = Const.imageSizeForLargeState * Const.scaleForImageSizeForLandscape
         imageView.transform = CGAffineTransform.identity
-            .scaledBy(x: Const.ScaleForImageSizeForLandscape, y: Const.ScaleForImageSizeForLandscape)
+            .scaledBy(x: Const.scaleForImageSizeForLandscape, y: Const.scaleForImageSizeForLandscape)
             .translatedBy(x: 0, y: yTranslation)
     }
 
@@ -177,36 +146,58 @@ extension HomeViewController {
         }
         return 1
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        switch Section.indexPath {
+        case .comingToOffice:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OfficeCollectionViewCell.identifier, for: indexPath)
+            return cell
+        case .statisticsReservationDesk:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskReservationsCollectionViewCell.identifier, for: indexPath)
+            return cell
+        case .statisticsLunch:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchStatisticsCollectionViewCell.identifier, for: indexPath)
+            return cell
+        case .deskReservation:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskCollectionViewCell.identifier, for: indexPath)
+            return cell
+        case .lunch:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchCollectionViewCell.identifier, for: indexPath)
+            return cell
+        }
+        
+        }
+        /*
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OfficeCollectionViewCell.identifier, for: indexPath)
             return cell
         } else if indexPath.section == 1 {
-            
+
             if indexPath.item == 0 {
-                
+
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchStatisticsCollectionViewCell.identifier, for: indexPath)
                 return cell
             } else {
-                
+
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskReservationsCollectionViewCell.identifier, for: indexPath)
                 return cell
             }
         } else if indexPath.section == 2 {
-            
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeskCollectionViewCell.identifier, for: indexPath)
             return cell
         } else if indexPath.section == 3 {
-            
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LunchCollectionViewCell.identifier, for: indexPath)
             return cell
         }
         else {
             return UICollectionViewCell()
         }
-    }
+         */
+    
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
@@ -234,7 +225,6 @@ extension HomeViewController {
         return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
 
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("ovo je \(indexPath.section)")
     }
@@ -242,13 +232,13 @@ extension HomeViewController {
 extension HomeViewController {
 
     private struct Const {
-        static let ImageSizeForLargeState: CGFloat = 40
-        static let ImageRightMargin: CGFloat = 16
-        static let ImageBottomMarginForLargeState: CGFloat = 12
-        static let ImageBottomMarginForSmallState: CGFloat = 6
-        static let ImageSizeForSmallState: CGFloat = 32
-        static let NavBarHeightSmallState: CGFloat = 44
-        static let NavBarHeightLargeState: CGFloat = 96.5
-        static let ScaleForImageSizeForLandscape: CGFloat = 0.65
+        static let imageSizeForLargeState: CGFloat = 40
+        static let imageRightMargin: CGFloat = 16
+        static let imageBottomMarginForLargeState: CGFloat = 12
+        static let imageBottomMarginForSmallState: CGFloat = 6
+        static let imageSizeForSmallState: CGFloat = 32
+        static let navBarHeightSmallState: CGFloat = 44
+        static let navBarHeightLargeState: CGFloat = 96.5
+        static let scaleForImageSizeForLandscape: CGFloat = 0.65
     }
 }
